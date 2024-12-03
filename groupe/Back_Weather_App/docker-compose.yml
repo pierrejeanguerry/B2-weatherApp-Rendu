@@ -1,0 +1,38 @@
+version: "3.7"
+
+services:
+  mariadb:
+    container_name: mariadb
+    image: mariadb:11.2.2
+    ports:
+      - 3306:3306
+    networks:
+      - db
+    volumes:
+      - "db:/var/lib/mysql"
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: 123456789
+      MARIADB_DATABASE: weatherstation-app
+
+  back:
+    container_name: back
+    restart: always
+    depends_on:
+      - mariadb
+    image: piguerry/weatherstation-back:0.10
+    ports:
+      - 8000:8000
+    networks:
+      - db
+    volumes:
+      - app:/app
+      - "log:/var/log"
+
+networks:
+  db:
+
+volumes:
+  db:
+  app:
+  log:

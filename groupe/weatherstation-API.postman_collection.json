@@ -1,0 +1,3717 @@
+{
+	"info": {
+		"_postman_id": "fd9a2f95-777c-4463-b644-5a1e01e918d1",
+		"name": "weatherstation-API",
+		"description": "Pour utiliser l'API, il faut aller dans l'onglet Authorization et remplacer le token avec un nouveau fraichement généré.\n\nL'utilisateur test contenant les datas permettant d'effectuer les tests a pour identifiants:\n\n``` json\n{\n    \"username\": \"pj@pj.fr\",\n    \"password\": \"123456789Pj\"\n}\n\n ```\n\na envoyer sur l'endpoint :\n\n`{{base_url}}/api/login`",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36450895"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://51.159.188.157:8000/api/users",
+									"protocol": "http",
+									"host": [
+										"51",
+										"159",
+										"188",
+										"157"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, must-revalidate, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 24 Jun 2024 17:28:34 GMT"
+								},
+								{
+									"key": "Expires",
+									"value": "Mon, 24 Jun 2024 17:28:34 GMT"
+								},
+								{
+									"key": "X-Debug-Token",
+									"value": "beb8b9"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.8"
+								},
+								{
+									"key": "X-Robots-Tag",
+									"value": "noindex"
+								},
+								{
+									"key": "Content-Length",
+									"value": "42"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"username\": \"username\",\n    \"email\": \"pj@pj.fr\"\n}"
+						}
+					]
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"truc\",\n    \"email\": \"truc@truc.fr\",\n    \"password\": \"123456789Pj\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "create success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"truc\",\n    \"email\": \"truc@truc.fr\",\n    \"password\": \"123456789Pj\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/users",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 24 Jun 2024 17:36:42 GMT"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "sf_redirect=%7B%22token%22%3A%22babb4e%22%2C%22route%22%3A%22register%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22App%5C%5CController%5C%5CUserController%22%2C%22method%22%3A%22register%22%2C%22file%22%3A%22%5C%2Fapp%5C%2Fsrc%5C%2FController%5C%2FUserController.php%22%2C%22line%22%3A41%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly; samesite=lax"
+								},
+								{
+									"key": "X-Debug-Token",
+									"value": "babb4e"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.8"
+								},
+								{
+									"key": "X-Robots-Tag",
+									"value": "noindex"
+								},
+								{
+									"key": "Content-Length",
+									"value": "26"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User created\"\n}"
+						},
+						{
+							"name": "user already exist",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"truc\",\n    \"email\": \"truc@truc.fr\",\n    \"password\": \"123456789Pj\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/users",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 24 Jun 2024 17:37:00 GMT"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "sf_redirect=deleted; expires=Sun, 25 Jun 2023 17:36:59 GMT; Max-Age=0; path=/; httponly"
+								},
+								{
+									"key": "X-Debug-Token",
+									"value": "ff31e7"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.8"
+								},
+								{
+									"key": "X-Robots-Tag",
+									"value": "noindex"
+								},
+								{
+									"key": "Content-Length",
+									"value": "30"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"User already exist\"\n}"
+						}
+					]
+				},
+				{
+					"name": "patch",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"new_email\": \"\",\n    \"new_password\": \"123456789Pj\",\n    \"password\": \"123456789pJ\",\n    \"new_username\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "email changed",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"new_email\": \"truc@truc.com\",\n    \"new_password\": \"\",\n    \"password\": \"123456789Pj\",\n    \"new_username\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://51.159.188.157:8000/api/users",
+									"protocol": "http",
+									"host": [
+										"51",
+										"159",
+										"188",
+										"157"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, must-revalidate, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 24 Jun 2024 17:39:14 GMT"
+								},
+								{
+									"key": "Expires",
+									"value": "Mon, 24 Jun 2024 17:39:14 GMT"
+								},
+								{
+									"key": "X-Debug-Token",
+									"value": "338b9b"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.8"
+								},
+								{
+									"key": "X-Robots-Tag",
+									"value": "noindex"
+								},
+								{
+									"key": "Content-Length",
+									"value": "26"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User updated\"\n}"
+						},
+						{
+							"name": "username changed",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"new_email\": \"\",\n    \"new_password\": \"\",\n    \"password\": \"123456789Pj\",\n    \"new_username\": \"test\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/users",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, must-revalidate, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 24 Jun 2024 17:39:46 GMT"
+								},
+								{
+									"key": "Expires",
+									"value": "Mon, 24 Jun 2024 17:39:46 GMT"
+								},
+								{
+									"key": "X-Debug-Token",
+									"value": "b0429e"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.8"
+								},
+								{
+									"key": "X-Robots-Tag",
+									"value": "noindex"
+								},
+								{
+									"key": "Content-Length",
+									"value": "26"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User updated\"\n}"
+						},
+						{
+							"name": "password changed",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"new_email\": \"\",\n    \"new_password\": \"123456789pJ\",\n    \"password\": \"123456789Pj\",\n    \"new_username\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/users",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, must-revalidate, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 24 Jun 2024 17:40:19 GMT"
+								},
+								{
+									"key": "Expires",
+									"value": "Mon, 24 Jun 2024 17:40:19 GMT"
+								},
+								{
+									"key": "X-Debug-Token",
+									"value": "d929fc"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.8"
+								},
+								{
+									"key": "X-Robots-Tag",
+									"value": "noindex"
+								},
+								{
+									"key": "Content-Length",
+									"value": "26"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User updated\"\n}"
+						},
+						{
+							"name": "bad password",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"new_email\": \"\",\n    \"new_password\": \"123456789PJ\",\n    \"password\": \"123456789pJ\",\n    \"new_username\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/users",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, must-revalidate, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 24 Jun 2024 17:40:58 GMT"
+								},
+								{
+									"key": "Expires",
+									"value": "Mon, 24 Jun 2024 17:40:58 GMT"
+								},
+								{
+									"key": "X-Debug-Token",
+									"value": "20cfe2"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.8"
+								},
+								{
+									"key": "X-Robots-Tag",
+									"value": "noindex"
+								},
+								{
+									"key": "Content-Length",
+									"value": "29"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Wrong credentials\"\n}"
+						}
+					]
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"password\": \"123456789Pj\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/users",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "bad password",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"password\": \"123456789PJ\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/users",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, must-revalidate, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 24 Jun 2024 17:41:58 GMT"
+								},
+								{
+									"key": "Expires",
+									"value": "Mon, 24 Jun 2024 17:41:58 GMT"
+								},
+								{
+									"key": "X-Debug-Token",
+									"value": "e1af54"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.8"
+								},
+								{
+									"key": "X-Robots-Tag",
+									"value": "noindex"
+								},
+								{
+									"key": "Content-Length",
+									"value": "29"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Wrong credentials\"\n}"
+						},
+						{
+							"name": "delete success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"password\": \"123456789Pj\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/users",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, must-revalidate, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 24 Jun 2024 17:42:18 GMT"
+								},
+								{
+									"key": "Expires",
+									"value": "Mon, 24 Jun 2024 17:42:18 GMT"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "PHPSESSID=7d0d3d8da804ee04c2216b1f1f4226c4; path=/; httponly; samesite=lax"
+								},
+								{
+									"key": "X-Debug-Token",
+									"value": "7eb923"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.8"
+								},
+								{
+									"key": "X-Robots-Tag",
+									"value": "noindex"
+								},
+								{
+									"key": "Content-Length",
+									"value": "26"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User deleted\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"truc@truc.fr\",\n    \"password\": \"123456789Pj\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "authentification failed",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"truc@truc.fr\",\n    \"password\": \"123456789P\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/login",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"login"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, must-revalidate, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 22 Jun 2024 12:50:30 GMT"
+								},
+								{
+									"key": "Expires",
+									"value": "Sat, 22 Jun 2024 12:50:30 GMT"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "PHPSESSID=deleted; expires=Fri, 23 Jun 2023 12:50:29 GMT; Max-Age=0; path=/; httponly; samesite=lax"
+								},
+								{
+									"key": "X-Debug-Token",
+									"value": "fbfeb7"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.8"
+								},
+								{
+									"key": "X-Robots-Tag",
+									"value": "noindex"
+								},
+								{
+									"key": "Content-Length",
+									"value": "32"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Invalid credentials.\"\n}"
+						},
+						{
+							"name": "authentification success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"pj@pj.fr\",\n    \"password\": \"123456789Pj\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/login",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, must-revalidate, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 24 Jun 2024 15:52:01 GMT"
+								},
+								{
+									"key": "Expires",
+									"value": "Mon, 24 Jun 2024 15:52:01 GMT"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "PHPSESSID=3d6940aac5796e961f75d3e5d9f6c077; path=/; httponly; samesite=lax"
+								},
+								{
+									"key": "X-Debug-Token",
+									"value": "47d77e"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.8"
+								},
+								{
+									"key": "X-Robots-Tag",
+									"value": "noindex"
+								},
+								{
+									"key": "Content-Length",
+									"value": "110"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"token_user\": \"dd8efec0fef4846d1562467df5be308878283dcab10e2b39915ca687088949e9\",\n    \"username\": \"username\",\n    \"id\": 3\n}"
+						}
+					]
+				},
+				{
+					"name": "check-login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/login/check",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"login",
+								"check"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "wrong token",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://51.159.188.157:8000/api/login/check",
+									"protocol": "http",
+									"host": [
+										"51",
+										"159",
+										"188",
+										"157"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"login",
+										"check"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, must-revalidate, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 24 Jun 2024 15:51:18 GMT"
+								},
+								{
+									"key": "Expires",
+									"value": "Mon, 24 Jun 2024 15:51:18 GMT"
+								},
+								{
+									"key": "X-Debug-Token",
+									"value": "b53cf5"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.8"
+								},
+								{
+									"key": "X-Robots-Tag",
+									"value": "noindex"
+								},
+								{
+									"key": "Content-Length",
+									"value": "30"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Token is not valid\"\n}"
+						},
+						{
+							"name": "authentification success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/login/check",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"login",
+										"check"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, must-revalidate, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 24 Jun 2024 15:52:53 GMT"
+								},
+								{
+									"key": "Expires",
+									"value": "Mon, 24 Jun 2024 15:52:53 GMT"
+								},
+								{
+									"key": "X-Debug-Token",
+									"value": "efa9f4"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.8"
+								},
+								{
+									"key": "X-Robots-Tag",
+									"value": "noindex"
+								},
+								{
+									"key": "Content-Length",
+									"value": "35"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Credentials are valid\"\n}"
+						}
+					]
+				},
+				{
+					"name": "logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/login/logout",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"login",
+								"logout"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "logout success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/api/login/logout",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"login",
+										"logout"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, must-revalidate, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 24 Jun 2024 15:56:59 GMT"
+								},
+								{
+									"key": "Expires",
+									"value": "Mon, 24 Jun 2024 15:56:59 GMT"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "PHPSESSID=b202cff43170479aaabc343411a19469; path=/; httponly; samesite=lax"
+								},
+								{
+									"key": "X-Debug-Token",
+									"value": "2220f1"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.8"
+								},
+								{
+									"key": "X-Robots-Tag",
+									"value": "noindex"
+								},
+								{
+									"key": "Content-Length",
+									"value": "31"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Session destroyed\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Building",
+			"item": [
+				{
+					"name": "list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/buildings",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"buildings"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/api/buildings",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"buildings"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, must-revalidate, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 24 Jun 2024 16:00:59 GMT"
+								},
+								{
+									"key": "Expires",
+									"value": "Mon, 24 Jun 2024 16:00:59 GMT"
+								},
+								{
+									"key": "X-Debug-Token",
+									"value": "b04f96"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.8"
+								},
+								{
+									"key": "X-Robots-Tag",
+									"value": "noindex"
+								},
+								{
+									"key": "Content-Length",
+									"value": "44"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"buildings\": [\n        {\n            \"id\": 3,\n            \"name\": \"Building 1\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"building_name\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/buildings",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"buildings"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "create success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"building_name\": \"turing22\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://51.159.188.157:8000/api/buildings",
+									"protocol": "http",
+									"host": [
+										"51",
+										"159",
+										"188",
+										"157"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"buildings"
+									]
+								}
+							},
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "no body",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/buildings",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"buildings"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, must-revalidate, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 24 Jun 2024 15:58:12 GMT"
+								},
+								{
+									"key": "Expires",
+									"value": "Mon, 24 Jun 2024 15:58:12 GMT"
+								},
+								{
+									"key": "X-Debug-Token",
+									"value": "ef302d"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.8"
+								},
+								{
+									"key": "X-Robots-Tag",
+									"value": "noindex"
+								},
+								{
+									"key": "Content-Length",
+									"value": "49"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Missing required field: building_name\"\n}"
+						},
+						{
+							"name": "bad body",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"building_name\": 2\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/buildings",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"buildings"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, must-revalidate, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 24 Jun 2024 15:59:59 GMT"
+								},
+								{
+									"key": "Expires",
+									"value": "Mon, 24 Jun 2024 15:59:59 GMT"
+								},
+								{
+									"key": "X-Debug-Token",
+									"value": "0243cf"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.8"
+								},
+								{
+									"key": "X-Robots-Tag",
+									"value": "noindex"
+								},
+								{
+									"key": "Content-Length",
+									"value": "48"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Invalid field type for building_name\"\n}"
+						}
+					]
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"new_name\": \"turing22\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/buildings/9",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"buildings",
+								"9"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "update success",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "token_user",
+										"value": "5c642c03e43f405dbd0a04359d79a5b8937c8778e4f01680d72d9b4103ef4588"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"new_name\": \"turing22\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://51.159.188.157:8000/api/buildings/3",
+									"protocol": "http",
+									"host": [
+										"51",
+										"159",
+										"188",
+										"157"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"buildings",
+										"3"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, must-revalidate, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 24 Jun 2024 16:02:27 GMT"
+								},
+								{
+									"key": "Expires",
+									"value": "Mon, 24 Jun 2024 16:02:27 GMT"
+								},
+								{
+									"key": "X-Debug-Token",
+									"value": "e07c99"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.8"
+								},
+								{
+									"key": "X-Robots-Tag",
+									"value": "noindex"
+								},
+								{
+									"key": "Content-Length",
+									"value": "30"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Building updated\"\n}"
+						},
+						{
+							"name": "bad body",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "token_user",
+										"value": "5c642c03e43f405dbd0a04359d79a5b8937c8778e4f01680d72d9b4103ef4588"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"new_name\": 22\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/buildings/3",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"buildings",
+										"3"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, must-revalidate, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 24 Jun 2024 16:02:54 GMT"
+								},
+								{
+									"key": "Expires",
+									"value": "Mon, 24 Jun 2024 16:02:54 GMT"
+								},
+								{
+									"key": "X-Debug-Token",
+									"value": "fd34b5"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.8"
+								},
+								{
+									"key": "X-Robots-Tag",
+									"value": "noindex"
+								},
+								{
+									"key": "Content-Length",
+									"value": "43"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Invalid field type for new_name\"\n}"
+						},
+						{
+							"name": "no body",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "token_user",
+										"value": "5c642c03e43f405dbd0a04359d79a5b8937c8778e4f01680d72d9b4103ef4588"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n   \n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/buildings/3",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"buildings",
+										"3"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, must-revalidate, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 24 Jun 2024 16:03:16 GMT"
+								},
+								{
+									"key": "Expires",
+									"value": "Mon, 24 Jun 2024 16:03:16 GMT"
+								},
+								{
+									"key": "X-Debug-Token",
+									"value": "7d2ff3"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.8"
+								},
+								{
+									"key": "X-Robots-Tag",
+									"value": "noindex"
+								},
+								{
+									"key": "Content-Length",
+									"value": "44"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Missing required field: new_name\"\n}"
+						},
+						{
+							"name": "bad json",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "token_user",
+										"value": "5c642c03e43f405dbd0a04359d79a5b8937c8778e4f01680d72d9b4103ef4588"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"new_name\": \"turing22\",\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/buildings/3",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"buildings",
+										"3"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, must-revalidate, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 24 Jun 2024 16:03:44 GMT"
+								},
+								{
+									"key": "Expires",
+									"value": "Mon, 24 Jun 2024 16:03:44 GMT"
+								},
+								{
+									"key": "X-Debug-Token",
+									"value": "0637f5"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.8"
+								},
+								{
+									"key": "X-Robots-Tag",
+									"value": "noindex"
+								},
+								{
+									"key": "Content-Length",
+									"value": "24"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Invalid JSON\"\n}"
+						}
+					]
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/buildings/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"buildings",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "bad building id",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "token_user",
+										"value": "5c642c03e43f405dbd0a04359d79a5b8937c8778e4f01680d72d9b4103ef4588"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/buildings/10",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"buildings",
+										"10"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, must-revalidate, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 24 Jun 2024 16:04:51 GMT"
+								},
+								{
+									"key": "Expires",
+									"value": "Mon, 24 Jun 2024 16:04:51 GMT"
+								},
+								{
+									"key": "X-Debug-Token",
+									"value": "f686ec"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.8"
+								},
+								{
+									"key": "X-Robots-Tag",
+									"value": "noindex"
+								},
+								{
+									"key": "Content-Length",
+									"value": "30"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Building not found\"\n}"
+						},
+						{
+							"name": "building not empty",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "token_user",
+										"value": "5c642c03e43f405dbd0a04359d79a5b8937c8778e4f01680d72d9b4103ef4588"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/buildings/3",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"buildings",
+										"3"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, must-revalidate, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 24 Jun 2024 16:05:25 GMT"
+								},
+								{
+									"key": "Expires",
+									"value": "Mon, 24 Jun 2024 16:05:25 GMT"
+								},
+								{
+									"key": "X-Debug-Token",
+									"value": "b3370e"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.8"
+								},
+								{
+									"key": "X-Robots-Tag",
+									"value": "noindex"
+								},
+								{
+									"key": "Content-Length",
+									"value": "33"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Building is not empty\"\n}"
+						},
+						{
+							"name": "delete success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "token_user",
+										"value": "d6c2a37ef08142eb0218157d00a07960b83029f1347e319022d2ec9bb146e9e4"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/buildings/6",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"buildings",
+										"6"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, must-revalidate, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 24 Jun 2024 17:08:59 GMT"
+								},
+								{
+									"key": "Expires",
+									"value": "Mon, 24 Jun 2024 17:08:59 GMT"
+								},
+								{
+									"key": "X-Debug-Token",
+									"value": "056b7b"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.8"
+								},
+								{
+									"key": "X-Robots-Tag",
+									"value": "noindex"
+								},
+								{
+									"key": "Content-Length",
+									"value": "30"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Building deleted\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Station",
+			"item": [
+				{
+					"name": "list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/stations?building_id=0",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"stations"
+							],
+							"query": [
+								{
+									"key": "building_id",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get all success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token_user",
+										"value": "1a3a2f2d67b390f8d01867ea1333b2f07bf3281a10bea242ee3b810c3ab56e8f"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/stations?building_id=0",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"stations"
+									],
+									"query": [
+										{
+											"key": "building_id",
+											"value": "0"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, must-revalidate, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 24 Jun 2024 16:10:07 GMT"
+								},
+								{
+									"key": "Expires",
+									"value": "Mon, 24 Jun 2024 16:10:07 GMT"
+								},
+								{
+									"key": "X-Debug-Token",
+									"value": "3341d2"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.8"
+								},
+								{
+									"key": "X-Robots-Tag",
+									"value": "noindex"
+								},
+								{
+									"key": "Content-Length",
+									"value": "341"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"stations\": [\n        {\n            \"id\": 4,\n            \"state\": 1,\n            \"name\": \"Station 1\",\n            \"activationDate\": \"2024-06-23T21:55:55+00:00\",\n            \"mac\": \"00:1B:44:11:3A:B7\"\n        },\n        {\n            \"id\": 5,\n            \"state\": 2,\n            \"name\": \"Station 2\",\n            \"activationDate\": \"2024-06-23T21:55:55+00:00\",\n            \"mac\": \"00:1B:44:11:3A:C3\"\n        },\n        {\n            \"id\": 6,\n            \"state\": 0,\n            \"name\": \"Station 3\",\n            \"activationDate\": \"2024-06-23T21:55:55+00:00\",\n            \"mac\": \"00:1B:44:11:3A:EE\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "get success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token_user",
+										"value": "1a3a2f2d67b390f8d01867ea1333b2f07bf3281a10bea242ee3b810c3ab56e8f"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/stations?building_id=3",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"stations"
+									],
+									"query": [
+										{
+											"key": "building_id",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, must-revalidate, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 24 Jun 2024 16:10:26 GMT"
+								},
+								{
+									"key": "Expires",
+									"value": "Mon, 24 Jun 2024 16:10:26 GMT"
+								},
+								{
+									"key": "X-Debug-Token",
+									"value": "61f4ec"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.8"
+								},
+								{
+									"key": "X-Robots-Tag",
+									"value": "noindex"
+								},
+								{
+									"key": "Content-Length",
+									"value": "341"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"stations\": [\n        {\n            \"id\": 4,\n            \"state\": 1,\n            \"name\": \"Station 1\",\n            \"activationDate\": \"2024-06-23T21:55:55+00:00\",\n            \"mac\": \"00:1B:44:11:3A:B7\"\n        },\n        {\n            \"id\": 5,\n            \"state\": 2,\n            \"name\": \"Station 2\",\n            \"activationDate\": \"2024-06-23T21:55:55+00:00\",\n            \"mac\": \"00:1B:44:11:3A:C3\"\n        },\n        {\n            \"id\": 6,\n            \"state\": 0,\n            \"name\": \"Station 3\",\n            \"activationDate\": \"2024-06-23T21:55:55+00:00\",\n            \"mac\": \"00:1B:44:11:3A:EE\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "no params",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token_user",
+										"value": "1a3a2f2d67b390f8d01867ea1333b2f07bf3281a10bea242ee3b810c3ab56e8f"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/stations",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"stations"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, must-revalidate, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 24 Jun 2024 16:10:55 GMT"
+								},
+								{
+									"key": "Expires",
+									"value": "Mon, 24 Jun 2024 16:10:55 GMT"
+								},
+								{
+									"key": "X-Debug-Token",
+									"value": "398102"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.8"
+								},
+								{
+									"key": "X-Robots-Tag",
+									"value": "noindex"
+								},
+								{
+									"key": "Content-Length",
+									"value": "47"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Missing required field: building_id\"\n}"
+						},
+						{
+							"name": "bad params",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token_user",
+										"value": "47f4874202db71c24bc5c11ec2bc7911a157bad8285c51f08c6782993a06a39d"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/stations?building_id=\"test\"",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"stations"
+									],
+									"query": [
+										{
+											"key": "building_id",
+											"value": "\"test\""
+										}
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, must-revalidate, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 24 Jun 2024 16:11:39 GMT"
+								},
+								{
+									"key": "Expires",
+									"value": "Mon, 24 Jun 2024 16:11:39 GMT"
+								},
+								{
+									"key": "X-Debug-Token",
+									"value": "0b7f3e"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.8"
+								},
+								{
+									"key": "X-Robots-Tag",
+									"value": "noindex"
+								},
+								{
+									"key": "Content-Length",
+									"value": "31"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"missing credentials\"\n}"
+						}
+					]
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"building_id\": \"1\",\n    \"station_name\": \"B165\",\n    \"mac_address\": \"00-1B-63-84-45-E6\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/stations",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"stations"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "bad building id",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token_user",
+										"value": "1a3a2f2d67b390f8d01867ea1333b2f07bf3281a10bea242ee3b810c3ab56e8f"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"building_id\": \"1\",\n    \"station_name\": \"B165\",\n    \"mac_address\": \"00-1B-63-84-45-E6\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/stations",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"stations"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, must-revalidate, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 24 Jun 2024 16:12:51 GMT"
+								},
+								{
+									"key": "Expires",
+									"value": "Mon, 24 Jun 2024 16:12:51 GMT"
+								},
+								{
+									"key": "X-Debug-Token",
+									"value": "5d8e00"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.8"
+								},
+								{
+									"key": "X-Robots-Tag",
+									"value": "noindex"
+								},
+								{
+									"key": "Content-Length",
+									"value": "30"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Building not found\"\n}"
+						},
+						{
+							"name": "create success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token_user",
+										"value": "1a3a2f2d67b390f8d01867ea1333b2f07bf3281a10bea242ee3b810c3ab56e8f"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"building_id\": \"3\",\n    \"station_name\": \"B165\",\n    \"mac_address\": \"00-1B-63-84-45-E6\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/stations",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"stations"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, must-revalidate, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 24 Jun 2024 16:13:12 GMT"
+								},
+								{
+									"key": "Expires",
+									"value": "Mon, 24 Jun 2024 16:13:12 GMT"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "sf_redirect=%7B%22token%22%3A%22743c8d%22%2C%22route%22%3A%22station_create%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22App%5C%5CController%5C%5CStationController%22%2C%22method%22%3A%22create%22%2C%22file%22%3A%22%5C%2Fapp%5C%2Fsrc%5C%2FController%5C%2FStationController.php%22%2C%22line%22%3A62%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly; samesite=lax"
+								},
+								{
+									"key": "X-Debug-Token",
+									"value": "743c8d"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.8"
+								},
+								{
+									"key": "X-Robots-Tag",
+									"value": "noindex"
+								},
+								{
+									"key": "Content-Length",
+									"value": "29"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Station created\"\n}"
+						},
+						{
+							"name": "bad json",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token_user",
+										"value": "1a3a2f2d67b390f8d01867ea1333b2f07bf3281a10bea242ee3b810c3ab56e8f"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"building_id\": \"3\",\n    \"station_name\": \"B165\",\n    \"mac_address\": \"00-1B-63-84-45-E6\",\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/stations",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"stations"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, must-revalidate, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 24 Jun 2024 16:13:28 GMT"
+								},
+								{
+									"key": "Expires",
+									"value": "Mon, 24 Jun 2024 16:13:28 GMT"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "sf_redirect=deleted; expires=Sun, 25 Jun 2023 16:13:27 GMT; Max-Age=0; path=/; httponly"
+								},
+								{
+									"key": "X-Debug-Token",
+									"value": "79dc46"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.8"
+								},
+								{
+									"key": "X-Robots-Tag",
+									"value": "noindex"
+								},
+								{
+									"key": "Content-Length",
+									"value": "24"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Invalid JSON\"\n}"
+						},
+						{
+							"name": "bad body",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token_user",
+										"value": "1a3a2f2d67b390f8d01867ea1333b2f07bf3281a10bea242ee3b810c3ab56e8f"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"building_id\": \"3\",\n    \"station_name\": \"B165\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/stations",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"stations"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, must-revalidate, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 24 Jun 2024 16:13:51 GMT"
+								},
+								{
+									"key": "Expires",
+									"value": "Mon, 24 Jun 2024 16:13:51 GMT"
+								},
+								{
+									"key": "X-Debug-Token",
+									"value": "dd07bf"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.8"
+								},
+								{
+									"key": "X-Robots-Tag",
+									"value": "noindex"
+								},
+								{
+									"key": "Content-Length",
+									"value": "47"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Missing required field: mac_address\"\n}"
+						},
+						{
+							"name": "conflict",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token_user",
+										"value": "1a3a2f2d67b390f8d01867ea1333b2f07bf3281a10bea242ee3b810c3ab56e8f"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"building_id\": \"3\",\n    \"station_name\": \"B165\",\n    \"mac_address\": \"00-1B-63-84-45-E6\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/stations",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"stations"
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, must-revalidate, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 24 Jun 2024 16:14:10 GMT"
+								},
+								{
+									"key": "Expires",
+									"value": "Mon, 24 Jun 2024 16:14:10 GMT"
+								},
+								{
+									"key": "X-Debug-Token",
+									"value": "7d9d5b"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.8"
+								},
+								{
+									"key": "X-Robots-Tag",
+									"value": "noindex"
+								},
+								{
+									"key": "Content-Length",
+									"value": "32"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Station already used\"\n}"
+						}
+					]
+				},
+				{
+					"name": "patch",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"new_name\": \"\",\n     \"new_building_id\" : \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/stations/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"stations",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "patch success",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "token_user",
+										"value": "d6c2a37ef08142eb0218157d00a07960b83029f1347e319022d2ec9bb146e9e4"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"new_name\": \"B064\",\n     \"new_building_id\" : \"3\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/stations/9",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"stations",
+										"9"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, must-revalidate, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 24 Jun 2024 16:50:23 GMT"
+								},
+								{
+									"key": "Expires",
+									"value": "Mon, 24 Jun 2024 16:50:23 GMT"
+								},
+								{
+									"key": "X-Debug-Token",
+									"value": "1bfdab"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.8"
+								},
+								{
+									"key": "X-Robots-Tag",
+									"value": "noindex"
+								},
+								{
+									"key": "Content-Length",
+									"value": "29"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Station updated\"\n}"
+						},
+						{
+							"name": "bad building id",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "token_user",
+										"value": "d6c2a37ef08142eb0218157d00a07960b83029f1347e319022d2ec9bb146e9e4"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"new_name\": \"B064\",\n     \"new_building_id\" : \"6\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/stations/9",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"stations",
+										"9"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, must-revalidate, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 24 Jun 2024 16:50:46 GMT"
+								},
+								{
+									"key": "Expires",
+									"value": "Mon, 24 Jun 2024 16:50:46 GMT"
+								},
+								{
+									"key": "X-Debug-Token",
+									"value": "a61875"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.8"
+								},
+								{
+									"key": "X-Robots-Tag",
+									"value": "noindex"
+								},
+								{
+									"key": "Content-Length",
+									"value": "30"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Building not found\"\n}"
+						},
+						{
+							"name": "bad station id",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "token_user",
+										"value": "d6c2a37ef08142eb0218157d00a07960b83029f1347e319022d2ec9bb146e9e4"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"new_name\": \"B064\",\n     \"new_building_id\" : \"3\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/stations/1",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"stations",
+										"1"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, must-revalidate, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 24 Jun 2024 16:52:16 GMT"
+								},
+								{
+									"key": "Expires",
+									"value": "Mon, 24 Jun 2024 16:52:16 GMT"
+								},
+								{
+									"key": "X-Debug-Token",
+									"value": "cf1640"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.8"
+								},
+								{
+									"key": "X-Robots-Tag",
+									"value": "noindex"
+								},
+								{
+									"key": "Content-Length",
+									"value": "29"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Station not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/stations/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"stations",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "bad station id",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "token_user",
+										"value": "d6c2a37ef08142eb0218157d00a07960b83029f1347e319022d2ec9bb146e9e4"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/stations/9",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"stations",
+										"9"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, must-revalidate, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 24 Jun 2024 17:05:15 GMT"
+								},
+								{
+									"key": "Expires",
+									"value": "Mon, 24 Jun 2024 17:05:15 GMT"
+								},
+								{
+									"key": "X-Debug-Token",
+									"value": "5e702e"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.8"
+								},
+								{
+									"key": "X-Robots-Tag",
+									"value": "noindex"
+								},
+								{
+									"key": "Content-Length",
+									"value": "29"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Station not found\"\n}"
+						},
+						{
+							"name": "delete success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "token_user",
+										"value": "d6c2a37ef08142eb0218157d00a07960b83029f1347e319022d2ec9bb146e9e4"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/stations/5",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"stations",
+										"5"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, must-revalidate, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 24 Jun 2024 17:06:21 GMT"
+								},
+								{
+									"key": "Expires",
+									"value": "Mon, 24 Jun 2024 17:06:21 GMT"
+								},
+								{
+									"key": "X-Debug-Token",
+									"value": "9d9d39"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.8"
+								},
+								{
+									"key": "X-Robots-Tag",
+									"value": "noindex"
+								},
+								{
+									"key": "Content-Length",
+									"value": "29"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Station deleted\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Reading",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"temperature\": \"\",\n    \"humidity\": \"\",\n    \"altitude\": \"\",\n    \"pressure\" : \"\",\n    \"mac_address\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/readings",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"readings"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "create success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token_user",
+										"value": "47f4874202db71c24bc5c11ec2bc7911a157bad8285c51f08c6782993a06a39d"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"temperature\": \"12\",\n    \"humidity\": \"23\",\n    \"altitude\": \"90\",\n    \"pressure\" : \"67\",\n    \"mac_address\": \"00:1B:44:11:3A:EE\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/readings",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"readings"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 24 Jun 2024 16:55:11 GMT"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "sf_redirect=%7B%22token%22%3A%2276dd0e%22%2C%22route%22%3A%22send_reading%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22App%5C%5CController%5C%5CReadingController%22%2C%22method%22%3A%22send%22%2C%22file%22%3A%22%5C%2Fapp%5C%2Fsrc%5C%2FController%5C%2FReadingController.php%22%2C%22line%22%3A61%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly; samesite=lax"
+								},
+								{
+									"key": "X-Debug-Token",
+									"value": "76dd0e"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.8"
+								},
+								{
+									"key": "X-Robots-Tag",
+									"value": "noindex"
+								},
+								{
+									"key": "Content-Length",
+									"value": "21"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Created\"\n}"
+						},
+						{
+							"name": "bad mac address",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token_user",
+										"value": "47f4874202db71c24bc5c11ec2bc7911a157bad8285c51f08c6782993a06a39d"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"temperature\": \"12\",\n    \"humidity\": \"23\",\n    \"altitude\": \"90\",\n    \"pressure\" : \"67\",\n    \"mac_address\": \"00:1B:44:11:3A:OP\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/readings",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"readings"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 24 Jun 2024 16:55:44 GMT"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "sf_redirect=deleted; expires=Sun, 25 Jun 2023 16:55:43 GMT; Max-Age=0; path=/; httponly"
+								},
+								{
+									"key": "X-Debug-Token",
+									"value": "c71149"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.8"
+								},
+								{
+									"key": "X-Robots-Tag",
+									"value": "noindex"
+								},
+								{
+									"key": "Content-Length",
+									"value": "31"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Invalid MAC address\"\n}"
+						},
+						{
+							"name": "bad body",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token_user",
+										"value": "47f4874202db71c24bc5c11ec2bc7911a157bad8285c51f08c6782993a06a39d"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"temperature\": \"test\",\n    \"humidity\": \"23\",\n    \"altitude\": \"90\",\n    \"pressure\" : \"67\",\n    \"mac_address\": \"00:1B:44:11:3A:EE\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/api/readings",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"readings"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 24 Jun 2024 16:56:14 GMT"
+								},
+								{
+									"key": "X-Debug-Token",
+									"value": "f03684"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.8"
+								},
+								{
+									"key": "X-Robots-Tag",
+									"value": "noindex"
+								},
+								{
+									"key": "Content-Length",
+									"value": "46"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Invalid field type for temperature\"\n}"
+						}
+					]
+				},
+				{
+					"name": "list",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"days\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/readings/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"readings",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get 1 success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token_user",
+										"value": "d6c2a37ef08142eb0218157d00a07960b83029f1347e319022d2ec9bb146e9e4"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/readings?station_id=6&days=1",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"readings"
+									],
+									"query": [
+										{
+											"key": "station_id",
+											"value": "6"
+										},
+										{
+											"key": "days",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, must-revalidate, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 24 Jun 2024 17:01:54 GMT"
+								},
+								{
+									"key": "Expires",
+									"value": "Mon, 24 Jun 2024 17:01:54 GMT"
+								},
+								{
+									"key": "X-Debug-Token",
+									"value": "eabe50"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.8"
+								},
+								{
+									"key": "X-Robots-Tag",
+									"value": "noindex"
+								},
+								{
+									"key": "Content-Length",
+									"value": "686"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"readings\": [\n        {\n            \"date\": \"2024-06-24 16:00:00\",\n            \"avgAltitude\": 90,\n            \"avgTemperature\": 12,\n            \"avgPressure\": null,\n            \"avgHumidity\": \"23.0000\"\n        },\n        {\n            \"date\": \"2024-06-23 21:00:00\",\n            \"avgAltitude\": 331,\n            \"avgTemperature\": 13,\n            \"avgPressure\": 930,\n            \"avgHumidity\": \"55.0000\"\n        },\n        {\n            \"date\": \"2024-06-23 20:00:00\",\n            \"avgAltitude\": 331,\n            \"avgTemperature\": 29.5,\n            \"avgPressure\": 930,\n            \"avgHumidity\": \"44.5000\"\n        },\n        {\n            \"date\": \"2024-06-23 19:00:00\",\n            \"avgAltitude\": 331,\n            \"avgTemperature\": 16,\n            \"avgPressure\": 930,\n            \"avgHumidity\": \"55.0000\"\n        },\n        {\n            \"date\": \"2024-06-23 18:00:00\",\n            \"avgAltitude\": 331,\n            \"avgTemperature\": 22.5,\n            \"avgPressure\": 930,\n            \"avgHumidity\": \"66.5000\"\n        },\n        {\n            \"date\": \"2024-06-23 17:00:00\",\n            \"avgAltitude\": 331,\n            \"avgTemperature\": 29.5,\n            \"avgPressure\": 930,\n            \"avgHumidity\": \"51.5000\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "get 7 success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token_user",
+										"value": "d6c2a37ef08142eb0218157d00a07960b83029f1347e319022d2ec9bb146e9e4"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/readings?station_id=6&days=7",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"readings"
+									],
+									"query": [
+										{
+											"key": "station_id",
+											"value": "6"
+										},
+										{
+											"key": "days",
+											"value": "7"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, must-revalidate, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 24 Jun 2024 17:01:14 GMT"
+								},
+								{
+									"key": "Expires",
+									"value": "Mon, 24 Jun 2024 17:01:14 GMT"
+								},
+								{
+									"key": "X-Debug-Token",
+									"value": "cedca7"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.8"
+								},
+								{
+									"key": "X-Robots-Tag",
+									"value": "noindex"
+								},
+								{
+									"key": "Content-Length",
+									"value": "903"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"readings\": [\n        {\n            \"date\": \"2024-06-24\",\n            \"avgAltitude\": 90,\n            \"avgTemperature\": 12,\n            \"avgPressure\": null,\n            \"avgHumidity\": \"23.0000\"\n        },\n        {\n            \"date\": \"2024-06-23\",\n            \"avgAltitude\": 331,\n            \"avgTemperature\": 23,\n            \"avgPressure\": 930,\n            \"avgHumidity\": \"55.7907\"\n        },\n        {\n            \"date\": \"2024-06-22\",\n            \"avgAltitude\": 331,\n            \"avgTemperature\": 22.833333333333332,\n            \"avgPressure\": 930,\n            \"avgHumidity\": \"53.6875\"\n        },\n        {\n            \"date\": \"2024-06-21\",\n            \"avgAltitude\": 331,\n            \"avgTemperature\": 21.125,\n            \"avgPressure\": 930,\n            \"avgHumidity\": \"56.6667\"\n        },\n        {\n            \"date\": \"2024-06-20\",\n            \"avgAltitude\": 331,\n            \"avgTemperature\": 23.3125,\n            \"avgPressure\": 930,\n            \"avgHumidity\": \"52.6458\"\n        },\n        {\n            \"date\": \"2024-06-19\",\n            \"avgAltitude\": 331,\n            \"avgTemperature\": 22.229166666666668,\n            \"avgPressure\": 930,\n            \"avgHumidity\": \"55.3958\"\n        },\n        {\n            \"date\": \"2024-06-18\",\n            \"avgAltitude\": 331,\n            \"avgTemperature\": 23.479166666666668,\n            \"avgPressure\": 930,\n            \"avgHumidity\": \"52.5833\"\n        },\n        {\n            \"date\": \"2024-06-17\",\n            \"avgAltitude\": 331,\n            \"avgTemperature\": 25.479166666666668,\n            \"avgPressure\": 930,\n            \"avgHumidity\": \"50.0208\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "get 30 success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token_user",
+										"value": "d6c2a37ef08142eb0218157d00a07960b83029f1347e319022d2ec9bb146e9e4"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/readings?station_id=6&days=30",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"readings"
+									],
+									"query": [
+										{
+											"key": "station_id",
+											"value": "6"
+										},
+										{
+											"key": "days",
+											"value": "30"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, must-revalidate, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 24 Jun 2024 17:00:43 GMT"
+								},
+								{
+									"key": "Expires",
+									"value": "Mon, 24 Jun 2024 17:00:43 GMT"
+								},
+								{
+									"key": "X-Debug-Token",
+									"value": "6355bf"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.8"
+								},
+								{
+									"key": "X-Robots-Tag",
+									"value": "noindex"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"readings\": [\n        {\n            \"date\": \"2024-06-24\",\n            \"avgAltitude\": 90,\n            \"avgTemperature\": 12,\n            \"avgPressure\": null,\n            \"avgHumidity\": \"23.0000\"\n        },\n        {\n            \"date\": \"2024-06-23\",\n            \"avgAltitude\": 331,\n            \"avgTemperature\": 23,\n            \"avgPressure\": 930,\n            \"avgHumidity\": \"55.7907\"\n        },\n        {\n            \"date\": \"2024-06-22\",\n            \"avgAltitude\": 331,\n            \"avgTemperature\": 22.833333333333332,\n            \"avgPressure\": 930,\n            \"avgHumidity\": \"53.6875\"\n        },\n        {\n            \"date\": \"2024-06-21\",\n            \"avgAltitude\": 331,\n            \"avgTemperature\": 21.125,\n            \"avgPressure\": 930,\n            \"avgHumidity\": \"56.6667\"\n        },\n        {\n            \"date\": \"2024-06-20\",\n            \"avgAltitude\": 331,\n            \"avgTemperature\": 23.3125,\n            \"avgPressure\": 930,\n            \"avgHumidity\": \"52.6458\"\n        },\n        {\n            \"date\": \"2024-06-19\",\n            \"avgAltitude\": 331,\n            \"avgTemperature\": 22.229166666666668,\n            \"avgPressure\": 930,\n            \"avgHumidity\": \"55.3958\"\n        },\n        {\n            \"date\": \"2024-06-18\",\n            \"avgAltitude\": 331,\n            \"avgTemperature\": 23.479166666666668,\n            \"avgPressure\": 930,\n            \"avgHumidity\": \"52.5833\"\n        },\n        {\n            \"date\": \"2024-06-17\",\n            \"avgAltitude\": 331,\n            \"avgTemperature\": 25.479166666666668,\n            \"avgPressure\": 930,\n            \"avgHumidity\": \"50.0208\"\n        },\n        {\n            \"date\": \"2024-06-16\",\n            \"avgAltitude\": 331,\n            \"avgTemperature\": 22.75,\n            \"avgPressure\": 930,\n            \"avgHumidity\": \"53.4167\"\n        },\n        {\n            \"date\": \"2024-06-15\",\n            \"avgAltitude\": 331,\n            \"avgTemperature\": 23.041666666666668,\n            \"avgPressure\": 930,\n            \"avgHumidity\": \"56.3958\"\n        },\n        {\n            \"date\": \"2024-06-14\",\n            \"avgAltitude\": 331,\n            \"avgTemperature\": 22.541666666666668,\n            \"avgPressure\": 930,\n            \"avgHumidity\": \"55.4167\"\n        },\n        {\n            \"date\": \"2024-06-13\",\n            \"avgAltitude\": 331,\n            \"avgTemperature\": 23.645833333333332,\n            \"avgPressure\": 930,\n            \"avgHumidity\": \"54.1250\"\n        },\n        {\n            \"date\": \"2024-06-12\",\n            \"avgAltitude\": 331,\n            \"avgTemperature\": 21.8125,\n            \"avgPressure\": 930,\n            \"avgHumidity\": \"51.7083\"\n        },\n        {\n            \"date\": \"2024-06-11\",\n            \"avgAltitude\": 331,\n            \"avgTemperature\": 21.958333333333332,\n            \"avgPressure\": 930,\n            \"avgHumidity\": \"54.6250\"\n        },\n        {\n            \"date\": \"2024-06-10\",\n            \"avgAltitude\": 331,\n            \"avgTemperature\": 21.979166666666668,\n            \"avgPressure\": 930,\n            \"avgHumidity\": \"53.2292\"\n        },\n        {\n            \"date\": \"2024-06-09\",\n            \"avgAltitude\": 331,\n            \"avgTemperature\": 20.291666666666668,\n            \"avgPressure\": 930,\n            \"avgHumidity\": \"57.7083\"\n        },\n        {\n            \"date\": \"2024-06-08\",\n            \"avgAltitude\": 331,\n            \"avgTemperature\": 22.458333333333332,\n            \"avgPressure\": 930,\n            \"avgHumidity\": \"57.3958\"\n        },\n        {\n            \"date\": \"2024-06-07\",\n            \"avgAltitude\": 331,\n            \"avgTemperature\": 19.375,\n            \"avgPressure\": 930,\n            \"avgHumidity\": \"56.6458\"\n        },\n        {\n            \"date\": \"2024-06-06\",\n            \"avgAltitude\": 331,\n            \"avgTemperature\": 21.916666666666668,\n            \"avgPressure\": 930,\n            \"avgHumidity\": \"55.7917\"\n        },\n        {\n            \"date\": \"2024-06-05\",\n            \"avgAltitude\": 331,\n            \"avgTemperature\": 22.354166666666668,\n            \"avgPressure\": 930,\n            \"avgHumidity\": \"55.7292\"\n        },\n        {\n            \"date\": \"2024-06-04\",\n            \"avgAltitude\": 331,\n            \"avgTemperature\": 22.895833333333332,\n            \"avgPressure\": 930,\n            \"avgHumidity\": \"56.6667\"\n        },\n        {\n            \"date\": \"2024-06-03\",\n            \"avgAltitude\": 331,\n            \"avgTemperature\": 22.729166666666668,\n            \"avgPressure\": 930,\n            \"avgHumidity\": \"57.2708\"\n        },\n        {\n            \"date\": \"2024-06-02\",\n            \"avgAltitude\": 331,\n            \"avgTemperature\": 22.375,\n            \"avgPressure\": 930,\n            \"avgHumidity\": \"51.7292\"\n        },\n        {\n            \"date\": \"2024-06-01\",\n            \"avgAltitude\": 331,\n            \"avgTemperature\": 20.8125,\n            \"avgPressure\": 930,\n            \"avgHumidity\": \"55.6458\"\n        },\n        {\n            \"date\": \"2024-05-31\",\n            \"avgAltitude\": 331,\n            \"avgTemperature\": 23.75,\n            \"avgPressure\": 930,\n            \"avgHumidity\": \"56.2500\"\n        },\n        {\n            \"date\": \"2024-05-30\",\n            \"avgAltitude\": 331,\n            \"avgTemperature\": 20.8125,\n            \"avgPressure\": 930,\n            \"avgHumidity\": \"55.9375\"\n        },\n        {\n            \"date\": \"2024-05-29\",\n            \"avgAltitude\": 331,\n            \"avgTemperature\": 22.916666666666668,\n            \"avgPressure\": 930,\n            \"avgHumidity\": \"56.2083\"\n        },\n        {\n            \"date\": \"2024-05-28\",\n            \"avgAltitude\": 331,\n            \"avgTemperature\": 21.520833333333332,\n            \"avgPressure\": 930,\n            \"avgHumidity\": \"52.5417\"\n        },\n        {\n            \"date\": \"2024-05-27\",\n            \"avgAltitude\": 331,\n            \"avgTemperature\": 23.3125,\n            \"avgPressure\": 930,\n            \"avgHumidity\": \"52.0833\"\n        },\n        {\n            \"date\": \"2024-05-26\",\n            \"avgAltitude\": 331,\n            \"avgTemperature\": 21.979166666666668,\n            \"avgPressure\": 930,\n            \"avgHumidity\": \"53.7708\"\n        },\n        {\n            \"date\": \"2024-05-25\",\n            \"avgAltitude\": 331,\n            \"avgTemperature\": 22.5625,\n            \"avgPressure\": 930,\n            \"avgHumidity\": \"52.5417\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "get 365 success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token_user",
+										"value": "d6c2a37ef08142eb0218157d00a07960b83029f1347e319022d2ec9bb146e9e4"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/readings?station_id=6&days=365",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"readings"
+									],
+									"query": [
+										{
+											"key": "station_id",
+											"value": "6"
+										},
+										{
+											"key": "days",
+											"value": "365"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, must-revalidate, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 24 Jun 2024 17:00:16 GMT"
+								},
+								{
+									"key": "Expires",
+									"value": "Mon, 24 Jun 2024 17:00:16 GMT"
+								},
+								{
+									"key": "X-Debug-Token",
+									"value": "b1e443"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.8"
+								},
+								{
+									"key": "X-Robots-Tag",
+									"value": "noindex"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1312"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"readings\": [\n        {\n            \"date\": 5,\n            \"avgAltitude\": 331,\n            \"avgTemperature\": 22.30510752688172,\n            \"avgPressure\": 930,\n            \"avgHumidity\": \"54.9496\"\n        },\n        {\n            \"date\": 4,\n            \"avgAltitude\": 331,\n            \"avgTemperature\": 22.177777777777777,\n            \"avgPressure\": 930,\n            \"avgHumidity\": \"54.8007\"\n        },\n        {\n            \"date\": 3,\n            \"avgAltitude\": 331,\n            \"avgTemperature\": 22.370295698924732,\n            \"avgPressure\": 930,\n            \"avgHumidity\": \"54.5329\"\n        },\n        {\n            \"date\": 2,\n            \"avgAltitude\": 331,\n            \"avgTemperature\": 21.933189655172413,\n            \"avgPressure\": 930,\n            \"avgHumidity\": \"54.7716\"\n        },\n        {\n            \"date\": 1,\n            \"avgAltitude\": 331,\n            \"avgTemperature\": 22.606182795698924,\n            \"avgPressure\": 930,\n            \"avgHumidity\": \"54.9718\"\n        },\n        {\n            \"date\": 12,\n            \"avgAltitude\": 331,\n            \"avgTemperature\": 22.316532258064516,\n            \"avgPressure\": 930,\n            \"avgHumidity\": \"55.8723\"\n        },\n        {\n            \"date\": 11,\n            \"avgAltitude\": 331,\n            \"avgTemperature\": 22.708333333333332,\n            \"avgPressure\": 930,\n            \"avgHumidity\": \"54.8028\"\n        },\n        {\n            \"date\": 10,\n            \"avgAltitude\": 331,\n            \"avgTemperature\": 22.75537634408602,\n            \"avgPressure\": 930,\n            \"avgHumidity\": \"54.8152\"\n        },\n        {\n            \"date\": 9,\n            \"avgAltitude\": 331,\n            \"avgTemperature\": 22.385416666666668,\n            \"avgPressure\": 930,\n            \"avgHumidity\": \"54.9528\"\n        },\n        {\n            \"date\": 8,\n            \"avgAltitude\": 331,\n            \"avgTemperature\": 22.559811827956988,\n            \"avgPressure\": 930,\n            \"avgHumidity\": \"54.7339\"\n        },\n        {\n            \"date\": 7,\n            \"avgAltitude\": 331,\n            \"avgTemperature\": 22.498655913978496,\n            \"avgPressure\": 930,\n            \"avgHumidity\": \"54.6129\"\n        },\n        {\n            \"date\": 6,\n            \"avgAltitude\": 330.8220088626293,\n            \"avgTemperature\": 22.27695716395864,\n            \"avgPressure\": 930,\n            \"avgHumidity\": \"54.6640\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "bad params",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token_user",
+										"value": "d6c2a37ef08142eb0218157d00a07960b83029f1347e319022d2ec9bb146e9e4"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/readings?station_id=6&days=toto",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"readings"
+									],
+									"query": [
+										{
+											"key": "station_id",
+											"value": "6"
+										},
+										{
+											"key": "days",
+											"value": "toto"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, must-revalidate, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 24 Jun 2024 17:03:32 GMT"
+								},
+								{
+									"key": "Expires",
+									"value": "Mon, 24 Jun 2024 17:03:32 GMT"
+								},
+								{
+									"key": "X-Debug-Token",
+									"value": "bcfc58"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.8"
+								},
+								{
+									"key": "X-Robots-Tag",
+									"value": "noindex"
+								},
+								{
+									"key": "Content-Length",
+									"value": "39"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Invalid field type for days\"\n}"
+						},
+						{
+							"name": "no params",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token_user",
+										"value": "d6c2a37ef08142eb0218157d00a07960b83029f1347e319022d2ec9bb146e9e4"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}/api/readings",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"readings"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, must-revalidate, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 24 Jun 2024 17:04:13 GMT"
+								},
+								{
+									"key": "Expires",
+									"value": "Mon, 24 Jun 2024 17:04:13 GMT"
+								},
+								{
+									"key": "X-Debug-Token",
+									"value": "ca80e1"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.8"
+								},
+								{
+									"key": "X-Robots-Tag",
+									"value": "noindex"
+								},
+								{
+									"key": "Content-Length",
+									"value": "46"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Missing required field: station_id\"\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "83b478bddc8fa9f662c9156f8f6ac8c06c72516cf1f84d9805fa4286ca130fec",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "token_user",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://51.159.188.157:8000",
+			"type": "string"
+		}
+	]
+}
